@@ -20,12 +20,12 @@ public class SeuilPR {
 
     @ManyToOne
     @JoinColumn(name = "medcin_id")
-    @JsonBackReference
+    @JsonBackReference("medcin-seuilpr")
     private Medcin medcin;
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
-    @JsonBackReference
+    @JsonBackReference("patient-seuils")
     private Patient patient;
 
     public SeuilPR() {

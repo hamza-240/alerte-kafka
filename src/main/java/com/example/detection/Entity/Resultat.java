@@ -1,5 +1,7 @@
 package com.example.detection.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -14,6 +16,7 @@ public class Resultat {
     private LocalDate dateMesure;
     @ManyToOne
     @JoinColumn(name = "dme_id")
+    @JsonBackReference("dme-resultats")
     private DME dossier;
     @ManyToOne
     @JoinColumn(name = "indicateur_id")
@@ -68,5 +71,16 @@ public class Resultat {
 
     public double getValeur() {
         return valeur;
+    }
+
+    @Override
+    public String toString() {
+        return "Resultat{" +
+                "id=" + id +
+                ", valeur=" + valeur +
+                ", dateMesure=" + dateMesure +
+                ", dossier=" + dossier +
+                ", indicateur=" + indicateur +
+                '}';
     }
 }

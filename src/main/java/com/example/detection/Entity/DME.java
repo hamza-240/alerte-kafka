@@ -1,5 +1,6 @@
 package com.example.detection.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -16,11 +17,13 @@ public class DME {
     private LocalDate date_creation;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id") // nom de la colonne clé étrangère dans la table DME
+    @JoinColumn(name = "patient_id")
+    @JsonBackReference("patient-dossiers")
+    // nom de la colonne clé étrangère dans la table DME
     private Patient patient;
 
     @OneToMany(mappedBy = "dossier")
-    @JsonManagedReference
+    @JsonManagedReference("dme-resultats")
     private List<Resultat> resultats;
     // Constructeurs
     public DME() {}

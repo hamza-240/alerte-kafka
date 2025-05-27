@@ -12,12 +12,15 @@ public class Medcin {
     private Long id;
     private String nom ;
 
+
     @OneToMany(mappedBy = "medcin")
-    @JsonManagedReference
+    @JsonManagedReference("medcin-seuilpr")
     private List<SeuilPR> seuilPRS;
 
     public Medcin() {
     }
+
+
 
     public Medcin(String nom) {
 

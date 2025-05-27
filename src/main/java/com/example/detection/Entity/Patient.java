@@ -1,5 +1,6 @@
 package com.example.detection.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -19,11 +20,13 @@ public class Patient {
 
     private LocalDate date_naissance;
 
-    @OneToMany(mappedBy = "patient")  // "patient" est le nom du champ dans DME qui fait référence à Patient
+    @OneToMany(mappedBy = "patient")// "patient" est le nom du champ dans DME qui fait référence à Patient
+    //@JsonIgnore
+    @JsonManagedReference("patient-dossiers")
     private List<DME> dossiersMedicaux;
 
     @OneToMany(mappedBy = "patient")
-    @JsonManagedReference
+    @JsonManagedReference("patient-seuils")
     private List<SeuilPR> seuilPRS;
 
     // Constructeurs
@@ -38,6 +41,8 @@ public class Patient {
     public Long getId_patient() {
         return id;
     }
+
+
 
     public void setId_patient(Long id_patient) {
         this.id = id_patient;
