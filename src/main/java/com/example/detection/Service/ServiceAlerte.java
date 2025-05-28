@@ -64,9 +64,9 @@ public class ServiceAlerte {
                             // si il y a une anomalie declancher une alerte
                             alerteDTO.setSeuilPR(seuilPR);
                             System.out.println("5 - ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ");
-                            //producer.producer(seuilPR.getMedcin().getId(),alerteDTO, KafkaConstants.TOPIC_ALERT_MEDCIN);
-                            //producer.producer(seuilPR.getPatient().getId_patient(),alerteDTO,KafkaConstants.TOPIC_ALERT_PATIENT);
-                            producer.producer(seuilPR.getMedcin().getId(),alerteDTO);
+                            producer.producer(seuilPR.getMedcin().getId(),alerteDTO, KafkaConstants.TOPIC_ALERT_MEDCIN);
+                            producer.producer(seuilPR.getPatient().getId_patient(),alerteDTO,KafkaConstants.TOPIC_ALERT_PATIENT);
+                            //producer.producer(seuilPR.getMedcin().getId(),alerteDTO);
                             //producer.producer(seuilPR.getPatient().getId_patient(),alerteDTO,KafkaConstants.TOPIC_ALERT_MEDCIN);
                         }
 

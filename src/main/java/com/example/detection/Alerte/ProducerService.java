@@ -31,9 +31,9 @@ public class ProducerService {
         System.out.println("✅ Message envoyé avec : " + message + " son id : " + id);
     }
 
-    public void producer(long id, AlerteDTO alerteDTO) throws JsonProcessingException {
+    public void producer(long id, AlerteDTO alerteDTO,String topic) throws JsonProcessingException {
         String jsonValue = objectMapper.writeValueAsString(alerteDTO);
-        kafkaTemplate.send("pap", String.valueOf(id), jsonValue);
+        kafkaTemplate.send(topic, String.valueOf(id), jsonValue);
         System.out.println("✅ Message envoyé : " + alerteDTO.toString() + " son id : " + id);
     }
 }

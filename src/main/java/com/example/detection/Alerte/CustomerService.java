@@ -28,10 +28,16 @@ public class CustomerService {
     public void customer(@Header(KafkaHeaders.RECEIVED_KEY)String id , @Payload String message){
         System.out.println("📩 Message reçu : "+message+" son id : "+id );
     }
-    @KafkaListener(topics = "pap",groupId = "grp-3")
-    public void customerDTO(@Header(KafkaHeaders.RECEIVED_KEY)String id ,@Payload  String message) throws JsonProcessingException {
+    @KafkaListener(topics = "alerte-medcin",groupId = "grp-3")
+    public void customerDTOMedcin(@Header(KafkaHeaders.RECEIVED_KEY)String id ,@Payload  String message) throws JsonProcessingException {
 
         AlerteDTO alerteDTO = objectMapper.readValue(message, AlerteDTO.class);
         System.out.println("📩 Message reçu : "+alerteDTO.toString()+" son id : "+id +" cote medcin ");
+    }
+    @KafkaListener(topics = "alerte-patient",groupId = "grp-3")
+    public void customerDTOPatient(@Header(KafkaHeaders.RECEIVED_KEY)String id ,@Payload  String message) throws JsonProcessingException {
+
+        AlerteDTO alerteDTO = objectMapper.readValue(message, AlerteDTO.class);
+        System.out.println("📩 Message reçu : "+alerteDTO.toString()+" son id : "+id +" cote patient ");
     }
 }
