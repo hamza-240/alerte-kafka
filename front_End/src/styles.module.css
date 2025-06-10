@@ -1,0 +1,59 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.status {
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.connected {
+  background-color: #e6f7ee;
+  color: #0d6832;
+}
+
+.disconnected {
+  background-color: #fff3e6;
+  color: #cc7a00;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.title {
+  color: #2c3e50;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.alertList {
+  margin-top: 1rem;
+}
+
+.empty {
+  color: #7f8c8d;
+  text-align: center;
+  font-style: italic;
+}
+
+.alertCard {
+  background: white;
+  border-left: 4px solid #3498db;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.alertCard h3 {
+  margin-top: 0;
+  color: #2980b9;
+}
