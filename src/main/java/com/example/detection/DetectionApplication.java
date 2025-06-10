@@ -16,7 +16,7 @@ public class DetectionApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DetectionApplication.class, args);
 	}
-
+/*
 	@Bean
 	public CommandLineRunner commandLineRunner(SeuilPR_JPA seuilPRJpa,
 											   ServiceAlerte serviceAlerte,
@@ -32,5 +32,5 @@ public class DetectionApplication {
 			System.out.println(resultat);
 			producerService.producer(1, "HHOOOOOPPPPPPPPPPPP");
 		};
-	}
+	}*/
 }
