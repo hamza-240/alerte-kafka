@@ -1,6 +1,6 @@
 package com.example.detection.Alerte;
 
-import com.example.detection.Entity.AlerteDTO;
+import com.example.detection.DTO.AlerteDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;

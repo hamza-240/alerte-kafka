@@ -1,5 +1,7 @@
-package com.example.detection.Entity;
+package com.example.detection.DTO;
 
+
+import com.example.detection.Entity.Patient;
 
 public class AlerteRequest {
     private int clickCount;

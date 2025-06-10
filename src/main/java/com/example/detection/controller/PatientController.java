@@ -1,13 +1,15 @@
 package com.example.detection.controller;
 
 
+import com.example.detection.Entity.DME;
 import com.example.detection.Entity.Patient;
+import com.example.detection.Service.DmeService;
 import com.example.detection.Service.PatientService;
 import com.example.detection.Service.ServiceAlerte;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.example.detection.Entity.AlerteRequest;
+import com.example.detection.DTO.AlerteRequest;
 
 import java.util.List;
 
@@ -18,10 +20,12 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
     private ServiceAlerte serviceAlerte;
+    private DmeService dmeService;
 
-    public PatientController(PatientService patientService, ServiceAlerte serviceAlerte) {
+    public PatientController(PatientService patientService, ServiceAlerte serviceAlerte, DmeService dmeService) {
         this.patientService = patientService;
         this.serviceAlerte = serviceAlerte;
+        this.dmeService = dmeService;
     }
 
     @GetMapping("/patients")
@@ -41,8 +45,13 @@ public class PatientController {
         Patient patient = request.getPatient();
 
         int incrementedCount = request.getClickCount() + 1;
+        List<DME> dmeList = dmeService.allDmePatient(request.getPatient().getId_patient());
         System.out.println("Patient ID : " + request.getPatient().getId() + ", clics : " + incrementedCount);
-        serviceAlerte.Alerte(1,request.getPatient().getId_patient());
+
+        for (DME dme:dmeList){
+            serviceAlerte.Alerte(dme.getId(),request.getPatient().getId_patient());
+        }
+
         return incrementedCount; // Retourne juste l'int
     }
 }

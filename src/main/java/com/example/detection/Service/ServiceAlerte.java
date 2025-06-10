@@ -3,7 +3,7 @@ package com.example.detection.Service;
 import com.example.detection.Alerte.CustomerService;
 import com.example.detection.Alerte.KafkaConstants;
 import com.example.detection.Alerte.ProducerService;
-import com.example.detection.Entity.AlerteDTO;
+import com.example.detection.DTO.AlerteDTO;
 import com.example.detection.Entity.DME;
 import com.example.detection.Entity.Resultat;
 import com.example.detection.Entity.SeuilPR;
@@ -12,7 +12,6 @@ import com.example.detection.jpa.ResultatJPA;
 import com.example.detection.jpa.SeuilPR_JPA;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.transaction.Transactional;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

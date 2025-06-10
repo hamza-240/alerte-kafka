@@ -1,6 +1,6 @@
 package com.example.detection.Alerte;
 
-import com.example.detection.Entity.AlerteDTO;
+import com.example.detection.DTO.AlerteDTO;
 import com.example.detection.Entity.Medcin;
 import com.example.detection.Entity.Patient;
 import com.example.detection.Service.MedcinService;

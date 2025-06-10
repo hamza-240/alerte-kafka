@@ -1,4 +1,7 @@
-package com.example.detection.Entity;
+package com.example.detection.DTO;
+
+import com.example.detection.Entity.Resultat;
+import com.example.detection.Entity.SeuilPR;
 
 import java.io.Serializable;
 
